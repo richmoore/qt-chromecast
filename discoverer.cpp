@@ -124,7 +124,8 @@ void Discoverer::readDeviceDescription(const QUrl &location)
 
     d->nam->get(QNetworkRequest(location));
     connect(d->nam, SIGNAL(finished(QNetworkReply*)),
-            SLOT(processDescription(QNetworkReply *)));
+            SLOT(processDescription(QNetworkReply *)),
+            Qt::UniqueConnection);
 }
 
 void Discoverer::processDescription(QNetworkReply *reply)
